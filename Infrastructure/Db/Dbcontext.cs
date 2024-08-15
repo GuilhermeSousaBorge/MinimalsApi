@@ -16,6 +16,19 @@ namespace MinimalApi.Infrastructure
         {
             _configurationAppSettings = configurationAppSettings;
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Administrator>().HasData(
+                new Administrator {
+                    Id = 1,
+                    Email = "admin@teste.com",
+                    Password = "123456",
+                    Role = "Admin"
+                }
+            );
+        }
+
         public DbSet<Administrator> Administrators { get; set; } = default!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
