@@ -7,21 +7,22 @@ using System.Threading.Tasks;
 
 namespace MinimalApi.Domain.Entities
 {
-    public class Administrator
+    public class Vehicles
     {
         [Key]
+        [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; } = default!;
 
         [Required]
-        [StringLength(255)]
-        public string Email { get; set; } = default!;
+        [StringLength(150)]
+        public string Name { get; set; } = default!;
 
         [Required]
-        [StringLength(50)]
-        public string Password { get; set; } = default!;
+        [StringLength(150)]
+        public string Model { get; set; } = default!;
 
-        [StringLength(10)]
-        public string Role { get; set; } = default!;
+        [Required]
+        public int Ano { get; set; } = default!;
     }
 }

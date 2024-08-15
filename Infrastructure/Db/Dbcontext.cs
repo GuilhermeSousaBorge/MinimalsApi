@@ -31,6 +31,8 @@ namespace MinimalApi.Infrastructure
 
         public DbSet<Administrator> Administrators { get; set; } = default!;
 
+        public DbSet<Vehicles> Vehicles { get; set; } = default!;
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
