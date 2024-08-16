@@ -8,7 +8,7 @@ namespace MinimalApi.Domain.Interfaces
 {
     public interface IVehicleService
     {
-        List<Vehicles> AllVehicles(int page = 1, string? name = null, string? model = null);
+        List<Vehicles> AllVehicles(int? page = 1, string? name = null, string? model = null);
 
         Vehicles? FindById(int id);
         Vehicles Save(Vehicles vehicle);

@@ -18,7 +18,7 @@ namespace MinimalApi.Domain.Services
             _context = context;
         }
 
-        public List<Vehicles> AllVehicles(int page = 1, string? name = null, string? model = null)
+        public List<Vehicles> AllVehicles(int? page = 1, string? name = null, string? model = null)
         {
             var query = _context.Vehicles.AsQueryable();
             if(!string.IsNullOrEmpty(name))
@@ -30,8 +30,10 @@ namespace MinimalApi.Domain.Services
             {
                 query = query.Where(v => v.Model.ToLower().Contains(model.ToLower()));
             }
-
-            query = query.Skip((page - 1) * 10).Take(10);
+            if(page != null)
+            {
+                query = query.Skip(((int)page - 1) * 10).Take(10);
+            }
 
             return query.ToList();
         }
