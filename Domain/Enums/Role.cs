@@ -7,7 +7,7 @@ namespace MinimalApi.Domain.Enums
 {
     public enum Role
     {
-        Adm,
+        Admin,
         Editor
     }
 }
